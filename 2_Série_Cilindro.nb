@@ -1,0 +1,204 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7898,        196]
+NotebookOptionsPosition[      7302,        178]
+NotebookOutlinePosition[      7719,        194]
+CellTagsIndexPosition[      7676,        191]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", 
+  RowBox[{
+  "n", ",", "h", ",", "r", ",", "k", ",", "\[Rho]", ",", "cp", ",", "ti", ",",
+    "t\[Infinity]", ",", "\[Phi]", ",", "bi", ",", "fo", ",", "\[Xi]", ",", 
+   "c"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"h", ",", "r", ",", "k", ",", "\[Rho]", ",", "cp"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"h", ",", "0.01", ",", "k", ",", "3700", ",", "920"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"ti", ",", "t\[Infinity]"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"25", ",", "100"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[Phi]", "[", "tx_", "]"}], ",", "bi", ",", 
+     RowBox[{"fo", "[", "t_", "]"}]}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"tx", "-", "t\[Infinity]"}], 
+       RowBox[{"ti", "-", "t\[Infinity]"}]], ",", 
+      FractionBox[
+       RowBox[{"h", "*", "r"}], "k"], ",", 
+      FractionBox[
+       RowBox[{"k", "*", "t"}], 
+       RowBox[{"\[Rho]", "*", "cp", "*", 
+        SuperscriptBox["r", "2"]}]]}], "}"}], "//", "N"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Xi]", "=", 
+   RowBox[{
+    RowBox[{"SolveValues", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"\[Lambda]", "*", 
+         FractionBox[
+          RowBox[{"BesselJ", "[", 
+           RowBox[{"1", ",", "\[Lambda]"}], "]"}], 
+          RowBox[{"BesselJ", "[", 
+           RowBox[{"0", ",", "\[Lambda]"}], "]"}]]}], "==", "bi"}], "&&", 
+       RowBox[{"0", "\[LessEqual]", "\[Lambda]", "\[LessEqual]", 
+        RowBox[{"BesselJZero", "[", 
+         RowBox[{"1", ",", "n"}], "]"}]}]}], ",", "\[Lambda]"}], "]"}], "//", 
+    "N"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      FractionBox["2", "\[Xi]"], ")"}], "*", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"BesselJ", "[", 
+        RowBox[{"1", ",", "\[Xi]"}], "]"}], 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"BesselJ", "[", 
+          RowBox[{"0", ",", "\[Xi]"}], "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"BesselJ", "[", 
+          RowBox[{"1", ",", "\[Xi]"}], "]"}], "2"]}]], ")"}]}], "//", "N"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]", "[", 
+    RowBox[{"x_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"Total", "[", 
+    RowBox[{"c", "*", 
+     RowBox[{"BesselJ", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"\[Xi]", "*", 
+        FractionBox["x", "r"]}]}], "]"}], "*", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["\[Xi]", "2"]}], "*", 
+       RowBox[{"fo", "[", "t", "]"}]}]]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8461610511656103`*^9, 3.846161100767714*^9}, {
+   3.8461611679778214`*^9, 3.84616128568909*^9}, {3.8461613280811305`*^9, 
+   3.8461615265878325`*^9}, {3.846161772469578*^9, 3.8461618046586843`*^9}, {
+   3.8461618766789875`*^9, 3.846161896157959*^9}, {3.846161963645443*^9, 
+   3.846161973207514*^9}, {3.846162007724615*^9, 3.8461620268535686`*^9}, {
+   3.8462396893012185`*^9, 3.846239757227215*^9}, {3.8462398303279614`*^9, 
+   3.8462398710799875`*^9}, {3.846239965914275*^9, 3.8462399966365695`*^9}, {
+   3.8462401112324963`*^9, 3.8462401126869044`*^9}, {3.8462401481237717`*^9, 
+   3.8462401692962093`*^9}, {3.8462402027148232`*^9, 
+   3.8462402369629965`*^9}, {3.846240270415268*^9, 3.846240286492792*^9}, {
+   3.846240324027546*^9, 3.846240425977478*^9}, {3.846244421203774*^9, 
+   3.846244457935835*^9}, {3.8462446627007837`*^9, 3.846244678613699*^9}, 
+   3.846244738329458*^9, {3.8462457811531954`*^9, 3.8462457833483257`*^9}, {
+   3.8462468804922295`*^9, 3.8462469057843018`*^9}, {3.846246996899274*^9, 
+   3.8462469971335945`*^9}, {3.8462472587377644`*^9, 3.846247291020856*^9}, {
+   3.846250751090711*^9, 3.846250806976227*^9}, {3.846252501774825*^9, 
+   3.8462525648582296`*^9}, {3.846252637169501*^9, 3.846252833112297*^9}, {
+   3.84625290318091*^9, 3.8462529754661713`*^9}, {3.846253021526689*^9, 
+   3.8462530219870477`*^9}, {3.8462530574630795`*^9, 3.846253057650384*^9}, {
+   3.8462533051252775`*^9, 3.846253305796996*^9}, {3.8467064922777405`*^9, 
+   3.84670662669454*^9}, {3.846706675875758*^9, 3.8467067425126524`*^9}, {
+   3.8467067758791895`*^9, 3.8467067777961626`*^9}, {3.8467068128755856`*^9, 
+   3.846706880571206*^9}, {3.84670696180845*^9, 3.8467069702154922`*^9}, {
+   3.846707031286668*^9, 3.8467071084158697`*^9}, {3.8467071872431736`*^9, 
+   3.8467071875243626`*^9}, {3.846911689820458*^9, 3.846911727598034*^9}, {
+   3.8469118423489532`*^9, 3.8469118473358035`*^9}, {3.8469119309846897`*^9, 
+   3.8469119805442452`*^9}, {3.8469121298488073`*^9, 3.846912130036271*^9}, {
+   3.8469123212981863`*^9, 3.8469123298248158`*^9}, {3.8469123787791452`*^9, 
+   3.8469124113519807`*^9}, 3.846912484195453*^9, {3.8469125142224455`*^9, 
+   3.8469125174314284`*^9}, {3.8469126743566713`*^9, 
+   3.8469126745440598`*^9}, {3.846916481217886*^9, 3.8469165348086543`*^9}, {
+   3.846916615303454*^9, 3.8469166246430655`*^9}, {3.846916704610693*^9, 
+   3.8469167524522223`*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"f8444675-50ea-431d-b5c5-05bd7d371334"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SolveValues", "inex", 
+   "\"SolveValues was unable to solve the system with inexact coefficients or \
+the system obtained by direct rationalization of inexact numbers present in \
+the system. Since many of the methods used by Solve require exact input, \
+providing Solve with an exact version of the system may help.\"", 2, 33, 7, 
+   21234689419376221798, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.8469166253303976`*^9, {3.8469167051574383`*^9, 3.846916752920791*^9}},
+ CellLabel->
+  "During evaluation of \
+In[28]:=",ExpressionUUID->"6e551ff8-350a-4902-a109-58fbc3b69914"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SolveValues", "inex", 
+   "\"SolveValues was unable to solve the system with inexact coefficients or \
+the system obtained by direct rationalization of inexact numbers present in \
+the system. Since many of the methods used by Solve require exact input, \
+providing Solve with an exact version of the system may help.\"", 2, 33, 8, 
+   21234689419376221798, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.8469166253303976`*^9, {3.8469167051574383`*^9, 3.8469167529364033`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[28]:=",ExpressionUUID->"2b17b24d-ff1a-4061-8d0d-a732ab0b3d55"]
+}, Open  ]]
+},
+WindowSize->{576, 357},
+WindowMargins->{{Automatic, 262.80000000000007`}, {Automatic, 108.6}},
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (May 11, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b9e02704-8948-4c76-9093-34d3f5b99a38"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5418, 123, 276, "Input",ExpressionUUID->"f8444675-50ea-431d-b5c5-05bd7d371334"],
+Cell[6001, 147, 640, 13, 84, "Message",ExpressionUUID->"6e551ff8-350a-4902-a109-58fbc3b69914"],
+Cell[6644, 162, 642, 13, 84, "Message",ExpressionUUID->"2b17b24d-ff1a-4061-8d0d-a732ab0b3d55"]
+}, Open  ]]
+}
+]
+*)
+
